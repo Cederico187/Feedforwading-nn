@@ -1,14 +1,12 @@
 import numpy as np
 from sklearn.datasets import fetch_openml
 
-
 mnist = fetch_openml("mnist_784", version=1, as_frame=False)
 X = mnist.data.astype(np.float32)/255   # Form (70000, 784)
 y = mnist.target.astype(np.int64)   # Form (70000,)
 
 X_train, X_test = X[:60000], X[60000:]
 y_train, y_test = y[:60000], y[60000:]
-
 
 def parameters():
     np.random.seed(1)
@@ -38,7 +36,6 @@ def execute_forwardpropagation(W1,W2,b1,b2):
     W1,W2,b1,b2 = parameters()
     A = forwardpass(X_train[:5],W1,W2,b1,b2)
     return W1,W2,b1,b2,A
-
 
 W1, W2, b1, b2 = parameters()
 A1, A2, Z1, Z2 = forwardpass(X_train[:5], W1, W2, b1, b2)
@@ -97,3 +94,8 @@ def train():
     return W1, W2, b1, b2
 
 W1, W2, b1, b2 = train()
+
+A1, A2, Z1, Z2 = forwardpass(X_test, W1, W2, b1, b2)
+vorhersage = np.argmax(A2, axis=1)
+genauigkeit = np.mean(vorhersage == y_test)
+print(f"Genauigkeit auf Testdaten: {genauigkeit:.4f}")
