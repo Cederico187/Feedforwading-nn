@@ -5,10 +5,10 @@ The MNIST database is a well known set of 60.000 handwritten numbers as training
 
 ![alt text](images/MNIST_dataset.png)
 
-A Feedforward neural network purpose is to learn the pattern of the given trainingsdata and trying to recognize the learned patterns when watching the testingdata.
+A Feedforward neural network purpose is to learn the pattern of the given train data and try to recognize the learned patterns when seeing the test data.
 
-## Architectur
-My code is implememted using numpy only so i can understand the diffrent steps of maschine learning.
+## Architecture
+My code is implememted using numpy only so i can understand the different steps of maschine learning.
 The neuronal network consists of one Input Layer, two Hidden Layers and an Output Layer.
 The Input Layers only function is to read the dataset. Each neuron in the Input Layer represents a feature of the the input data.
 Hidden Layers represent the learning function of a neuronal network and each neuron applies a weighted sum of inputs followed by a non-linear activation function. 
